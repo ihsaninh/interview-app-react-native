@@ -33,18 +33,17 @@ class Interview extends Component {
       });
   };
 
-  handleCreate = async () => {
-    const question_id = this.state.question_id
-    const user_id = 15
-    answer = 
+  handleAnswer = async () => {
     axios
-      .post(`${ENV.API_URL}/api/v1/chats/`, { content: this.state.inputContent, room_id: room_id }, { headers: headers })
+      .post(`http://192.168.0.26:3333/api/v1/answer/`, { question_id : 1, user_id: 15, answer: "diedit lagi", attachment: 'a'})
       .then(res => {
+        console.log(res)
         this.setState({
           inputContent: ""
         });
       })
       .catch(err => {
+        console.log(err)
         alert("Field tidak boleh kosong");
       });
   };
@@ -69,9 +68,11 @@ class Interview extends Component {
         </View>
         <ScrollView>
           <View style={{ flex: 5 }}>
-            {this.state.questions.map((question, i) => (
-              <View style={{ marginHorizontal: 10 }}>
-                <View>
+            {this.state.questions.map((question, i) => ( 
+              <View style={{ marginHorizontal: 10 }} key={i}>
+               {
+                 (question.type === 'text') ? (
+                  <View>
                   <Text style={{ fontSize: 19, marginBottom: 10 }}>{question.number} {question.description}</Text>
                   <TextInput
                     multiline={true}
@@ -81,6 +82,8 @@ class Interview extends Component {
                       this.setState({ inputContent })
                   }
                   />
+
+
                   <Button
                     buttonStyle={{
                       margin: 30,
@@ -99,6 +102,54 @@ class Interview extends Component {
                     onPress={this.handleAnswer}
                   />
                 </View>
+
+                   ) : (
+
+                  <View>
+                    <Text style={{ fontSize: 19, marginBottom: 10 }}>{question.number} {question.description}</Text>
+                    <CheckBox
+                      center
+                      title='Makan'
+                      checked={this.state.checked}
+                    />
+                    <CheckBox
+                      center
+                      title='Tidur'
+                      checked={this.state.checked}
+                    />
+                    <CheckBox
+                      center
+                      title='Ngoding'
+                      checked={this.state.checked}
+                    />
+                    <CheckBox
+                      center
+                      title='Minum'
+                      checked={this.state.checked}
+                    />
+                  <Button
+                    buttonStyle={{
+                      margin: 30,
+                      marginTop: 10,
+                      backgroundColor: "#fff",
+                      borderColor: "#6a69e2",
+                      borderWidth: 1,
+                      borderRadius: 50
+                    }}
+                    titleStyle={{
+                      color: "#6a69e2",
+                      fontWeight: "500",
+                      fontSize: 16
+                    }}
+                    title="Simpan Jawaban"
+                    onPress={this.handleAnswer}
+                  />
+                </View>
+
+
+                   )
+               }
+                
               </View>
             ))}
           </View>
