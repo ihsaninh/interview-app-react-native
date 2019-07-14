@@ -35,9 +35,9 @@ class Interview extends Component {
 
   handleAnswer = async () => {
     axios
-      .post(`http://192.168.0.26:3333/api/v1/answer/`, { question_id : 1, user_id: 15, answer: "diedit lagi", attachment: 'a'})
+      .post(`http://192.168.0.26:3333/api/v1/answer/`, { question_id : 1, user_id: 15, answer: "diedit", attachment: 'a'})
       .then(res => {
-        console.log(res)
+        alert('work')
         this.setState({
           inputContent: ""
         });
@@ -145,8 +145,6 @@ class Interview extends Component {
                     onPress={this.handleAnswer}
                   />
                 </View>
-
-
                    )
                }
                 

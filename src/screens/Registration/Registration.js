@@ -43,8 +43,8 @@ class Registration extends Component {
         if( this.state.inputUsername=="" || this.state.inputEmail=="" || this.state.inputPhone=="") {
           alert("Tidak ada yang boleh kosong")  
         }else{ 
-          register = await this.props.registration({ name: this.state.inputUsername, email: this.state.inputEmail, phone_number: this.state.inputPhone })
-          console.log(register)
+          this.props.registration({ name: this.state.inputUsername, email: this.state.inputEmail, phone_number: this.state.inputPhone })
+          .then
           if (register){
             this.props.navigation.navigate('Home')
           }

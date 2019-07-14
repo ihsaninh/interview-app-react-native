@@ -8,8 +8,7 @@ import appReducer from './reducers';
 
 const config = {
     key : "primary",
-    blacklist: [],
-    // whiteList : [],
+    blacklist: ['navigation'],
     storage : AsyncStorage
 }
 
