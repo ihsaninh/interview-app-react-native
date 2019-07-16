@@ -1,14 +1,16 @@
 import { createNavigationReducer } from 'react-navigation-redux-helpers';
 import RootNavigation from './../../navigations/RootNavigation';
-import auth from './authReducer';
-import questions from './questionReducer';
+import registration from './registration';
+import questions from './questions';
+import answer from './answer';
 
 const router = createNavigationReducer(RootNavigation);
 
 const appReducer = {
   router,
-  auth,
-  questions
+  registration,
+  questions,
+  answer
 }
 
 export default appReducer

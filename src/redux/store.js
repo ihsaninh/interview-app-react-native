@@ -8,8 +8,8 @@ import appReducer from './reducers';
 
 const config = {
     key : "primary",
-    blacklist: ['navigation'],
-    storage : AsyncStorage
+    storage : AsyncStorage,
+    blacklist: ['router']
 }
 
 let persistedReducer = persistCombineReducers(config,appReducer)

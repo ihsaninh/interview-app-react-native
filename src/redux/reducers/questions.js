@@ -5,24 +5,21 @@ const initialState = {
     data: [],
     error: null,
     isLoading: false,
-    saveToken: null
 }
 
-export default function auth(state = initialState, action){
+export default function questions(state = initialState, action){
     switch (action.type){
-        case types.REGISTRATION:
+        case types.QUESTION:
       return {
         ...state,
         isLoading: true,
       };
-    case types.REGISTRATION_FULFILLED:
+    case types.QUESTION_FULFILLED:
       return {
         ...state,
-        isLoading: false,
         data: action.payload.data,
-        saveToken: AsyncStorage.setItem('token', action.payload.data.token),
       };
-    case types.REGISTRATION_REJECTED:
+    case types.QUESTION_REJECTED:
       return {
         ...state,
         isLoading: false,

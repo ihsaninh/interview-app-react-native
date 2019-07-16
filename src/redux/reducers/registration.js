@@ -5,23 +5,23 @@ const initialState = {
     data: [],
     error: null,
     isLoading: false,
-    saveToken: null
 }
 
-export default function questions(state = initialState, action){
+export default function registration(state = initialState, action){
     switch (action.type){
-        case types.QUESTION:
+        case types.REGISTRATION:
       return {
         ...state,
         isLoading: true,
       };
-    case types.QUESTION_FULFILLED:
+    case types.REGISTRATION_FULFILLED:
       return {
         ...state,
         isLoading: false,
         data: action.payload.data,
+        userId: AsyncStorage.setItem('user_id', JSON.stringify(action.payload.data.id)),
       };
-    case types.QUESTION_REJECTED:
+    case types.REGISTRATION_REJECTED:
       return {
         ...state,
         isLoading: false,
