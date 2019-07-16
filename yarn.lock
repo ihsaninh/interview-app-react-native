@@ -5120,6 +5120,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-animatable@^1.2.4:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.2.tgz#4783ee1a73dc98815aef234ce6b819f80bfe7d80"
+  integrity sha512-rmah3KQ63ft8DxkzFUwJSuZeq+oSYwldoGF4DTOR5WM2WR5wiWLgBAtrAHlI3Di3by323uOR21s+MlqPcHz2Kw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-camera@^2.11.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-2.11.1.tgz#a72062f59bb57c0cb2bd57fe6713fa23b2a90571"
@@ -5191,6 +5198,14 @@ react-native-linear-gradient@^2.5.4:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.4.tgz#dce133526f5a5510a639af94544f1ed0c984bd1e"
   integrity sha512-FF1NhlerA4uBiS0gFIHa4FBp8/aftv4vPj14Y47lGNkYjSI94tnI6oYO3EfUxXjEyCUPiOVNKZOB9kScyjc5Ew==
 
+react-native-radio-button@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-radio-button/-/react-native-radio-button-2.0.1.tgz#d21fc52276f3c5c89691ff40cd8a62758888745b"
+  integrity sha512-v3yUppxs9yzzLgwaMSYFEm6vjFEYlvflXvabh9dgu9Rsg+4pw+r81cxlRRT1E6iEk1QjkxY87Zy7X7H6QraRzQ==
+  dependencies:
+    prop-types "^15.5.10"
+    react-native-animatable "^1.2.4"
+
 react-native-ratings@^6.3.0:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.3.1.tgz#4e4bd87f376423dc62c933f570fc1932c78adaa4"
@@ -5219,6 +5234,11 @@ react-native-select-multiple@^2.0.0:
   integrity sha512-x67SJfKYtV+vSurFfxgBpefEZrDQpoAdMZiBhtjWZbtnMxoKNb9717GQo5Rtj8JFSTQ93VZnzXBDu0blKXW+pw==
   dependencies:
     prop-types "^15.6.0"
+
+react-native-simple-radio-button@^2.7.3:
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.3.tgz#c7227c0f963d6bbcfa245255d18a5a8b98fde41f"
+  integrity sha512-kiYRarFj7PXzV9fbQwMBiYwS4YnhrR4NZGT68atlFIoNFxZLrt5OMCDqXZqu6R6bUWKLndzPpO/nhXc6/OU1Mg==
 
 react-native-status-bar-height@^2.2.0:
   version "2.3.1"

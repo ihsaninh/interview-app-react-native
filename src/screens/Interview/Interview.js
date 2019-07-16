@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Text, View, StatusBar, TextInput, ScrollView, button, StyleSheet, AsyncStorage } from "react-native"
+import { Text, View, StatusBar, TextInput, ScrollView, button, StyleSheet, AsyncStorage, Alert } from "react-native"
 import { Icon, Button } from "react-native-elements"
 import { withNavigation } from "react-navigation"
 import * as actionInterview from "../../redux/actions"
@@ -26,21 +26,31 @@ class Interview extends Component {
   }
 
   _nextQuestion = async () => {
-    user_id = AsyncStorage.getItem('user_id')
+    user_id = await AsyncStorage.getItem('user_id')
     this.props.postAnswer({ 
-      question_id: this.props.questions.data.question.id, 
-      user_id: user_id, 
+      questionId: this.props.questions.data.question.id, 
+      userId: user_id, 
       answer: this.state.answer,
-      attachment: this.state.attachment 
+      attachment: this.state.attachment
     })
-    console.log(postAnswer)
-      await this.setState({
+    await this.setState({
       number: this.state.number + 1
     })
     if(this.state.number <= this.props.questions.data.question_count) {
-       this.props.getQuestions(this.state.number)
+      await this.setState({
+        answer: '',
+        attachment: null,
+      })
+      this.props.getQuestions(this.state.number)
     } else {
-      this.props.navigation.navigate('Home')
+        Alert.alert(
+          'Congratulations',
+          'Terima kasih sudah menjawab semua pertanyaan interview online kami, silahkan tunggu bulan depan untuk pengumuman hasilnya',
+          [
+            {text: 'OK', onPress: () => this.props.navigation.navigate('Registration')},
+          ],
+          {cancelable: false},
+        );
     }
   }
 
@@ -88,9 +98,9 @@ class Interview extends Component {
                  (question.type === 'text') ? (
                   <QuestionText number={question.number} desc={question.description} changeState={this.changeState}/>
                    ) : (question.type === 'multiple choice') ? (
-                    <MultipleChoice  number={question.number} desc={question.description} />
+                    <MultipleChoice options={question.options}  number={question.number} desc={question.description} changeState={this.changeState} />
                    ) : (question.type === 'multiple select') ? (
-                      <MultipleSelect number={question.number} desc={question.description} />
+                      <MultipleSelect options={question.options} number={question.number} desc={question.description} changeState={this.changeState}/>
                    ) : (
                      <View><Text>Pakai Kamera</Text></View>
                    )

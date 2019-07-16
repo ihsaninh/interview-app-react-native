@@ -138,6 +138,7 @@ class Registration extends Component {
                                 }}
                                 placeholderTextColor={'#f0f0f0'}
                                 placeholder="Phone Number"
+                                keyboardType="numeric"
                                 onChangeText={inputPhone =>
                                     this.setState({ inputPhone })
                                 }
