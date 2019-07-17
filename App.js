@@ -5,7 +5,7 @@ import { ActivityIndicator } from "react-native"
 import { createReduxContainer } from 'react-navigation-redux-helpers'
 import RootNavigation from './src/navigations/RootNavigation'
 import { store,persistor } from './src/redux/store'
-import { YellowBox } from 'react-native'
+// import { YellowBox } from 'react-native'
 const AppNav = createReduxContainer(RootNavigation, 'root')
 const mapStateToProps = state => ({
     state : state.router
@@ -13,10 +13,10 @@ const mapStateToProps = state => ({
 const AppWithNavigationState = connect(mapStateToProps)(AppNav)
 class App extends Component {
   render(){
-    YellowBox.ignoreWarnings(['Warning: Async Storage has been extracted from react-native core']);
+    // YellowBox.ignoreWarnings(['Warning: Async Storage has been extracted from react-native core']);
     return (  
       <Provider store={store}>
-        <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
+        <PersistGate loading={null} persistor={persistor}>
           <AppWithNavigationState />
         </PersistGate>
       </Provider>

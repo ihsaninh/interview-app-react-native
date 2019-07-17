@@ -12,6 +12,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.BV.LinearGradient.LinearGradientPackage;
 import org.reactnative.camera.RNCameraPackage;
+import com.wix.RNCameraKit.RNCameraKitPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new LinearGradientPackage(),
-            new RNCameraPackage()
+            new RNCameraPackage(),
+            new RNCameraKitPackage()
       );
     }
 

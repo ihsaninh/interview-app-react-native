@@ -53,14 +53,14 @@ class Registration extends Component {
 
     render() {
             return (
-                <View style={{ flex: 1 }}>
-                    <LinearGradient colors={['#eea849', '#f46b45']} style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    <LinearGradient colors={['#8685ff', '#34338f']} style={styles.gradientContainer}>
                         <StatusBar
-                            backgroundColor="#d99943"
+                            backgroundColor="#504fbd"
                             barStyle="light-content"
                         />
-                        <View style={{ height: '30%', justifyContent: 'center' }}>
-                            <View style={(this.state.focused) ? { marginTop: '15%', display: 'none' } : { marginTop: '15%' }}>
+                        <View style={styles.headerContainer}>
+                            <View style={(this.state.focused) ? styles.titleHide : styles.title }>
                                  <Icon
                                     name="home-city"
                                     type="material-community"
@@ -68,32 +68,16 @@ class Registration extends Component {
                                     size={60}
                                 /> 
                                 <Text
-                                    style={{
-                                        fontSize: 30,
-                                        textAlign: 'center',
-                                        marginBottom: 40,
-                                        color: '#f0f0f0',
-                                        fontWeight: '500',
-                                        marginTop: 10
-                                    }}>
+                                    style={styles.appTitle}>
                                     InterView Apps
                                 </Text>
                             </View>
                         </View>
-                        <View style={{ height: '60%', justifyContent: 'center' }}>
+                        <View style={styles.formContainer}>
                             <TextInput
                                 onFocus={this.onFocusChange}
                                 selectionColor={'#f0f0f0'}
-                                style={{
-                                    height: 40,
-                                    borderColor: '#f0f0f0',
-                                    borderWidth: 2,
-                                    color: '#f0f0f0',
-                                    borderRadius: 10,
-                                    paddingLeft: 20,
-                                    fontWeight: '500',
-                                    marginHorizontal: 30
-                                }}
+                                style={styles.inputStyle}
                                 placeholderTextColor={'#f0f0f0'}
                                 placeholder="Username"
                                 onChangeText={input =>
@@ -104,17 +88,7 @@ class Registration extends Component {
                             <TextInput
                                 onFocus={this.onFocusChange}
                                 selectionColor={'#f0f0f0'}
-                                style={{
-                                    height: 40,
-                                    borderColor: '#f0f0f0',
-                                    borderWidth: 2,
-                                    color: '#f0f0f0',
-                                    borderRadius: 10,
-                                    paddingLeft: 20,
-                                    marginTop: 20,
-                                    fontWeight: '500',
-                                    marginHorizontal: 30
-                                }}
+                                style={styles.inputStyle}
                                 placeholderTextColor={'#f0f0f0'}
                                 placeholder="Email Address"
                                 onChangeText={inputEmail =>
@@ -125,17 +99,7 @@ class Registration extends Component {
                             <TextInput
                                 onFocus={this.onFocusChange}
                                 selectionColor={'#f0f0f0'}
-                                style={{
-                                    height: 40,
-                                    color: '#f0f0f0',
-                                    borderColor: '#f0f0f0',
-                                    borderWidth: 2,
-                                    borderRadius: 10,
-                                    paddingLeft: 20,
-                                    fontWeight: '500',
-                                    margin: 20,
-                                    marginHorizontal: 30
-                                }}
+                                style={styles.inputStyle}
                                 placeholderTextColor={'#f0f0f0'}
                                 placeholder="Phone Number"
                                 keyboardType="numeric"
@@ -145,25 +109,11 @@ class Registration extends Component {
                                 value={this.state.inputPhone}
                             />
                             <Button
-                                buttonStyle={{
-                                    margin: 30,
-                                    marginTop: 10,
-                                    backgroundColor: '#f0f0f0',
-                                    borderRadius: 50
-                                }}
-                                titleStyle={{
-                                    color: '#f46b45',
-                                    fontWeight: '500',
-                                    fontSize: 16
-                                }}
-                                title="Mulai Tes"
+                                buttonStyle={styles.btnStyle}
+                                titleStyle={styles.btnTitleStyle}
+                                title="Masuk ke Dashboard"
                                 onPress={this.handleRegister}
                             />
-                        </View>
-                        <View style={{ height: '10%' }}>
-                            <View
-                                style={(this.state.focused) ? { alignItems: 'center', marginTop: 20, display: 'none' } : { alignItems: 'center', marginTop: 20 }}>
-                            </View>
                         </View>
                     </LinearGradient>
                 </View>
@@ -172,6 +122,57 @@ class Registration extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    headerContainer: {
+        height: '30%', 
+        justifyContent: 'center' 
+    },
+    title: {
+        marginTop: '15%'
+    },
+    titleHide: {
+        marginTop: '15%', 
+        display: 'none'  
+    },
+    gradientContainer: {
+        flex: 1
+    },
+    appTitle: {
+        fontSize: 30,
+        textAlign: 'center',
+        marginBottom: 40,
+        color: '#f0f0f0',
+        fontWeight: '500',
+        marginTop: 10
+    },
+    formContainer: {
+        height: '60%', 
+        justifyContent: 'center'
+    },
+    inputStyle: {
+        height: 40,
+        borderColor: '#f0f0f0',
+        borderWidth: 2,
+        color: '#f0f0f0',
+        borderRadius: 10,
+        paddingLeft: 20,
+        fontWeight: '500',
+        marginHorizontal: 30,
+        marginBottom: 20
+    },
+    btnStyle: {
+        margin: 30,
+        marginTop: 10,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 50
+    },
+    btnTitleStyle: {
+        color: '#504fbd',
+        fontWeight: '500',
+        fontSize: 16
+    }    
 
 })
 

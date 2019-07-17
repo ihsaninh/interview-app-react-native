@@ -98,7 +98,7 @@ class Interview extends Component {
                    ) : (question.type === 'multiple select') ? (
                       <MultipleSelect options={question.options} number={question.number} desc={question.description} changeState={this.changeState}/>
                    ) : (
-                     <QuestionVideo />
+                     <QuestionVideo number={question.number} desc={question.description}/>
                    )
                }
                   <Button
@@ -139,11 +139,12 @@ const styles = StyleSheet.create({
     flex: 5
   },
   questionDistance: {
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    marginTop: 20
   },
   btnStyle: {
     margin: 30,
-    marginTop: 10,
+    marginTop: 50,
     backgroundColor: "#fff",
     borderColor: "#6a69e2",
     borderWidth: 1,

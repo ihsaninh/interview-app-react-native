@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
 } from 'react-native';
-// eslint-disable-next-line import/no-unresolved
 import { RNCamera } from 'react-native-camera';
 
 const flashModeOrder = {
@@ -30,7 +28,7 @@ const wbOrder = {
 
 const landmarkSize = 2;
 
-export default class QuestionVideo extends React.Component {
+export default class QuestionVideo extends Component {
   state = {
     flash: 'off',
     zoom: 0,
@@ -43,13 +41,13 @@ export default class QuestionVideo extends React.Component {
       },
     },
     depth: 0,
-    type: 'back',
+    type: 'front',
     whiteBalance: 'auto',
     ratio: '16:9',
     recordOptions: {
       mute: false,
       maxDuration: 5,
-      // quality: RNCamera.Constants.VideoQuality['288p'],
+      quality: RNCamera.Constants.VideoQuality['288p'],
     },
     isRecording: false,
     canDetectFaces: false,
@@ -135,7 +133,6 @@ export default class QuestionVideo extends React.Component {
     if (this.camera) {
       try {
         const promise = this.camera.recordAsync(this.state.recordOptions);
-
         if (promise) {
           this.setState({ isRecording: true });
           const data = await promise;
@@ -285,7 +282,6 @@ export default class QuestionVideo extends React.Component {
         }}
         style={{
           flex: 1,
-          justifyContent: 'space-between',
         }}
         type={this.state.type}
         flashMode={this.state.flash}
@@ -325,46 +321,7 @@ export default class QuestionVideo extends React.Component {
             justifyContent: 'space-around',
           }}
         >
-          <View
-            style={{
-              backgroundColor: 'transparent',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            }}
-          >
-            <TouchableOpacity style={styles.flipButton} onPress={this.toggleFacing.bind(this)}>
-              <Text style={styles.flipText}> FLIP </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.flipButton} onPress={this.toggleFlash.bind(this)}>
-              <Text style={styles.flipText}> FLASH: {this.state.flash} </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.flipButton} onPress={this.toggleWB.bind(this)}>
-              <Text style={styles.flipText}> WB: {this.state.whiteBalance} </Text>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              backgroundColor: 'transparent',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-            }}
-          >
-            <TouchableOpacity onPress={this.toggle('canDetectFaces')} style={styles.flipButton}>
-              <Text style={styles.flipText}>
-                {!canDetectFaces ? 'Detect Faces' : 'Detecting Faces'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.toggle('canDetectText')} style={styles.flipButton}>
-              <Text style={styles.flipText}>
-                {!canDetectText ? 'Detect Text' : 'Detecting Text'}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.toggle('canDetectBarcode')} style={styles.flipButton}>
-              <Text style={styles.flipText}>
-                {!canDetectBarcode ? 'Detect Barcode' : 'Detecting Barcode'}
-              </Text>
-            </TouchableOpacity>
-          </View>
+          
         </View>
         <View style={{ bottom: 0 }}>
           <View
@@ -445,22 +402,28 @@ export default class QuestionVideo extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        {!!canDetectFaces && this.renderFaces()}
-        {!!canDetectFaces && this.renderLandmarks()}
-        {!!canDetectText && this.renderTextBlocks()}
-        {!!canDetectBarcode && this.renderBarcodes()}
       </RNCamera>
     );
   }
 
   render() {
-    return <View style={styles.container}>{this.renderCamera()}</View>;
+    return (
+      <View>
+        <Text style={{ fontSize: 19, marginBottom: 10 }}>{this.props.number}. {this.props.desc}</Text>
+          <View style={styles.container}>
+            <View>
+              {this.renderCamera()}
+            </View>
+          </View>
+        </View>
+      )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 60,
     paddingTop: 10,
     backgroundColor: '#000',
   },
