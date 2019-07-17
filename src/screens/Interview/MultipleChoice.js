@@ -13,9 +13,9 @@ class MultipleChoice extends Component {
     };
   }
 
-  async componentDidMount() {
+    componentDidMount() {
     let choice = []
-    await this.props.options.split(',').map((item, key) => {
+    this.props.options.split(',').map((item, key) => {
       choice.push({label: item, value: key})
     })
     this.setState({

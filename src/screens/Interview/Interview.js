@@ -7,7 +7,7 @@ import CountDown from 'react-native-countdown-component';
 import QuestionText from './QuestionText'
 import MultipleChoice from './MultipleChoice'
 import MultipleSelect from './MultipleSelect'
-// import QuestionVideo from './QuestionVideo'
+import QuestionVideo from './QuestionVideo'
 import { connect } from "react-redux"
 
 class Interview extends Component {
@@ -37,10 +37,6 @@ class Interview extends Component {
       number: this.state.number + 1
     })
     if(this.state.number <= this.props.questions.data.question_count) {
-      await this.setState({
-        answer: '',
-        attachment: null,
-      })
       this.props.getQuestions(this.state.number)
     } else {
         Alert.alert(
@@ -102,7 +98,7 @@ class Interview extends Component {
                    ) : (question.type === 'multiple select') ? (
                       <MultipleSelect options={question.options} number={question.number} desc={question.description} changeState={this.changeState}/>
                    ) : (
-                     <View><Text>Pakai Kamera</Text></View>
+                     <QuestionVideo />
                    )
                }
                   <Button

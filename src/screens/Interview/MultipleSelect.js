@@ -30,7 +30,7 @@ class MultipleChoice extends Component {
       selectedItems
     })
     selectedItems.map(item => {
-      selected += item.label + ","
+      selected += item.key + ","
     })
     this.props.changeState('answer', selected)
   }
