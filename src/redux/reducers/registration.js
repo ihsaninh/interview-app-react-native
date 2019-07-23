@@ -1,34 +1,37 @@
-import * as types from '../types'
-import { AsyncStorage } from 'react-native'
+import * as types from "../types";
 
 const initialState = {
-    data: [],
-    error: null,
-    isLoading: false,
-}
+  data: [],
+  error: null,
+  isSuccess: false,
+  isLoading: false,
+  isError: false
+};
 
-export default function registration(state = initialState, action){
-    switch (action.type){
-        case types.REGISTRATION:
+export default function registration(state = initialState, action) {
+  switch (action.type) {
+    case types.REGISTRATION_PENDING:
       return {
         ...state,
+        data: [],
         isLoading: true,
       };
     case types.REGISTRATION_FULFILLED:
       return {
         ...state,
+        isSuccess: true,
         isLoading: false,
         data: action.payload.data,
-        userId: AsyncStorage.setItem('user_id', JSON.stringify(action.payload.data.id)),
+        userId: action.payload.data.id,
       };
     case types.REGISTRATION_REJECTED:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message
+        isError: true,
+        error: `'Error when registration caused the ' + action.payload.message`
       };
-
-      default:
-        return state
-    }
+    default:
+      return state;
+  }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text} from 'react-native';
-import { CheckBox} from "react-native-elements"
+import { View, Text} from 'react-native';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 class MultipleChoice extends Component {
@@ -40,16 +39,13 @@ class MultipleChoice extends Component {
           radio_props={this.state.choice}
           initial={0}
           onPress={(selected) => {this.radioClick(selected)}}
+          labelStyle={{fontSize: 18}}
+          buttonSize={20}
         />
       </View>
     </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-
-});
-
 
 export default MultipleChoice;

@@ -6,14 +6,14 @@ const middlewares = [];
 
 const reactNavigation = createReactNavigationReduxMiddleware(
   state => state.nav,
-  "root",
+  'root',
 );
 
 if (__DEV__) {
   middlewares.push(createLogger());
 }
 
-middlewares.push(reactNavigation)
-middlewares.push(promise)
+middlewares.push(reactNavigation);
+middlewares.push(promise);
 
 export default middlewares;

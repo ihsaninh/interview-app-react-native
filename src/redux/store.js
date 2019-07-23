@@ -1,20 +1,20 @@
 import { createStore, applyMiddleware } from 'redux';
-import { persistCombineReducers, persistStore } from "redux-persist"
+import { persistCombineReducers, persistStore } from 'redux-persist';
 
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage } from 'react-native';
 
 import middlewares from './middleware';
 import appReducer from './reducers';
 
 const config = {
-    key : "primary",
-    storage : AsyncStorage,
-    blacklist: ['router']
-}
+  key: 'primary',
+  storage: AsyncStorage,
+  blacklist: ['router'],
+};
 
-let persistedReducer = persistCombineReducers(config,appReducer)
+const persistedReducer = persistCombineReducers(config, appReducer);
 
-const store = createStore(persistedReducer, {}, applyMiddleware(...middlewares))
-const persistor =  persistStore(store)
+const store = createStore(persistedReducer, {}, applyMiddleware(...middlewares));
+const persistor = persistStore(store);
 
-export { store,persistor };
+export { store, persistor };

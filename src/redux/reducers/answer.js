@@ -1,14 +1,14 @@
-import * as types from '../types'
-import { AsyncStorage } from 'react-native'
+import * as types from '../types';
 
 const initialState = {
-    data: [],
-    error: null,
-}
+  data: [],
+  error: null,
+  isLoading: false,
+};
 
-export default function answer(state = initialState, action){
-    switch (action.type){
-        case types.ANSWER:
+export default function answer(state = initialState, action) {
+  switch (action.type) {
+    case types.ANSWER:
       return {
         ...state,
         isLoading: true,
@@ -23,10 +23,10 @@ export default function answer(state = initialState, action){
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message
+        error: action.payload.message,
       };
 
-      default:
-        return state
-    }
+    default:
+      return state;
+  }
 }
