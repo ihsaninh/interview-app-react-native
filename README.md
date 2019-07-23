@@ -20,6 +20,7 @@ Interview Online App is an application that is used to interview prospective emp
 ## Requirements
 * [`npm`](https://www.npmjs.com/get-npm)
 * [`react native`](https://facebook.github.io/react-native)
+* [`redux`](https://redux.js.org/)
 * [`react navigation`](https://reactnavigation.org/)
 * [`react native camera`](https://github.com/react-native-community/react-native-camera)
 
