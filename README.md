@@ -1,12 +1,5 @@
 <h1 align="center">:octocat: Interview Online App :octocat:</h1>
 
-  <p align="center">
-  <img width="150" src="https://banner2.kisspng.com/20180714/fgp/kisspng-job-interview-logo-consultant-business-person-talking-5b4a07b519ddd1.689853931531578293106.jpg"/>
-  </p>
-  <p align="center">
-  Built with React Native.
-   </p>
-
 ## Table of Contents
 
 - [Introduction](#introduction)
