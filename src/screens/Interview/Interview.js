@@ -142,6 +142,7 @@ class Interview extends Component {
                   <QuestionVideo
                     number={question.number}
                     desc={question.description}
+                    changeState={this.changeState}
                   />
                 )}
                 <Button
