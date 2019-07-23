@@ -35,7 +35,7 @@ Interview Online App is an application that is used to interview prospective emp
    $ cd Interview-App-React-Native
    $ npm install
    ```
-3. Run Facebook Clone
+3. Run Application
    ```
    $ react-native start
    $ react-native run-android or react-native run-ios
