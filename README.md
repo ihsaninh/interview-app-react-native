@@ -5,6 +5,8 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Requirements](#requirements)
+- [How to Run](#howtorun)
+- [Testing Application](#testingapplication)
 - [Screenshoots](#screenshoot)
 - [Contributors](#contributors)
 
@@ -41,8 +43,8 @@ Interview Online App is an application that is used to interview prospective emp
    $ react-native start
    $ react-native run-android or react-native run-ios
    ```
-## Build apk
-If you want to try this app, you cant download directly to this link <a href="http://bit.ly/2GqUse1">interview-app.apk</a>. After succesfully downloaded, you can install on your own smarthphone.
+## Testing Application
+If you want to try this app, you cant download directly to this link <a href="http://bit.ly/2GqUse1">interview-app.apk</a>. After succesfully downloaded, you can install on your own smartphone.
 
 ## Screenshoot
 <div align="center">
