@@ -41,6 +41,8 @@ Interview Online App is an application that is used to interview prospective emp
    $ react-native start
    $ react-native run-android or react-native run-ios
    ```
+## Build apk
+Jika kalian ingin mencoba aplikasi yang sudah di build menjadi apk silahkan kalian bisa mengunduh di link berikut <a href="http://bit.ly/2GqUse1">interview-app.apk</a>
 
 ## Screenshoot
 <div align="center">
