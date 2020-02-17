@@ -6,7 +6,7 @@ const middlewares = [];
 
 const reactNavigation = createReactNavigationReduxMiddleware(
   state => state.nav,
-  'root',
+  'root'
 );
 
 if (__DEV__) {

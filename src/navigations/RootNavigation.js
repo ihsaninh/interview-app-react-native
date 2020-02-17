@@ -1,4 +1,8 @@
-import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {
+  createStackNavigator,
+  createAppContainer,
+  createSwitchNavigator
+} from 'react-navigation';
 import Loading from '../screens/Loading/Loading';
 import Registration from '../screens/Registration/Registration';
 import Home from '../screens/Home/Home';
@@ -8,9 +12,9 @@ const Initial = createStackNavigator({
   Loading: {
     screen: Loading,
     navigationOptions: ({ navigation }) => ({
-      header: null,
-    }),
-  },
+      header: null
+    })
+  }
 });
 
 const App = createStackNavigator(
@@ -18,24 +22,24 @@ const App = createStackNavigator(
     Registration: {
       screen: Registration,
       navigationOptions: ({ navigation }) => ({
-        header: null,
-      }),
+        header: null
+      })
     },
     Home: {
       screen: Home,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: 'Halaman Dashboard',
-      }),
+        headerTitle: 'Halaman Dashboard'
+      })
     },
     Interview: {
       screen: Interview,
       navigationOptions: ({ navigation }) => ({
-        header: null,
-      }),
-    },
+        header: null
+      })
+    }
   },
   {
-    initialRouteName: 'Registration',
+    initialRouteName: 'Registration'
   }
 );
 
@@ -43,11 +47,11 @@ const RootNavigation = createAppContainer(
   createSwitchNavigator(
     {
       Initial,
-      App,
+      App
     },
     {
       initialRouteName: 'Initial',
-      resetOnBlur: true,
+      resetOnBlur: true
     }
   )
 );

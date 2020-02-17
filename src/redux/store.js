@@ -9,12 +9,16 @@ import appReducer from './reducers';
 const config = {
   key: 'primary',
   storage: AsyncStorage,
-  blacklist: ['router'],
+  blacklist: ['router']
 };
 
 const persistedReducer = persistCombineReducers(config, appReducer);
 
-const store = createStore(persistedReducer, {}, applyMiddleware(...middlewares));
+const store = createStore(
+  persistedReducer,
+  {},
+  applyMiddleware(...middlewares)
+);
 const persistor = persistStore(store);
 
 export { store, persistor };

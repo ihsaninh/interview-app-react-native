@@ -10,7 +10,7 @@ const appReducer = {
   router,
   registration,
   questions,
-  answer,
+  answer
 };
 
 export default appReducer;

@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   error: null,
   isLoading: false,
-  isError: false,
+  isError: false
 };
 
 export default function questions(state = initialState, action) {
@@ -13,20 +13,20 @@ export default function questions(state = initialState, action) {
       return {
         ...state,
         data: [],
-        isLoading: true,
+        isLoading: true
       };
     case types.QUESTION_FULFILLED:
       return {
         ...state,
         isLoading: false,
-        data: action.payload.data,
+        data: action.payload.data
       };
     case types.QUESTION_REJECTED:
       return {
         ...state,
         isLoading: false,
         isError: true,
-        error: action.payload.message,
+        error: action.payload.message
       };
     default:
       return state;

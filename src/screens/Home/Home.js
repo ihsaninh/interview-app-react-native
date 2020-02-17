@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Icon, Button } from 'react-native-elements'
+import { Icon, Button } from 'react-native-elements';
 
 export default class Home extends Component {
-
   static navigationOptions = {
     title: 'Dashboard',
     headerStyle: {
-      backgroundColor: '#6a69e2',
+      backgroundColor: '#6a69e2'
     },
     headerLeft: null,
     headerTintColor: '#fff',
@@ -15,20 +14,17 @@ export default class Home extends Component {
       fontWeight: 'bold',
       color: '#fff',
       fontSize: 16
-    },
+    }
   };
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ alignItems: 'center', marginTop: 50 }}>
-          <Icon
-            name="av-timer"
-            type="material-icon"
-            color="grey"
-            size={50}
-          />
-          <Text style={{ fontSize: 18, fontWeight: '500', marginTop: 20 }}>Welcome to PT. Mencari Jomblo Sejati</Text>
+          <Icon name="av-timer" type="material-icon" color="grey" size={50} />
+          <Text style={{ fontSize: 18, fontWeight: '500', marginTop: 20 }}>
+            Welcome to PT. Mencari Jomblo Sejati
+          </Text>
 
           <Text style={{ paddingVertical: 20 }}>Instruksi Pengerjaan:</Text>
           <Text style={styles.rule}>1. Kerjakan soal dengan Tenang</Text>
@@ -36,7 +32,7 @@ export default class Home extends Component {
           <Text style={styles.rule}>3. Kerjakan soal dengan Kalem</Text>
         </View>
         <Button
-        containerStyle={{marginTop: 30}}
+          containerStyle={{ marginTop: 30 }}
           buttonStyle={{
             margin: 30,
             marginTop: 10,
@@ -61,4 +57,4 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     fontSize: 16
   }
-})
+});

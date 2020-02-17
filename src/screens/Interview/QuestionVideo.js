@@ -12,33 +12,31 @@ import {
 import { RNCamera } from 'react-native-camera';
 
 class QuestionVideo extends Component {
-
   constructor(props) {
     super(props);
-  
+
     this.state = {
       recording: false,
       processing: false
     };
   }
 
-
-async startRecording() {
+  async startRecording() {
     this.setState({ recording: true });
-    const { uri, codec = "mp4" } = await this.camera.recordAsync();
+    const { uri, codec = 'mp4' } = await this.camera.recordAsync();
     this.setState({
       recording: false,
       processing: true
-    })
-    this.props.changeState('attachment', uri)
-    this.setState({ 
-      processing: false 
     });
-}
+    this.props.changeState('attachment', uri);
+    this.setState({
+      processing: false
+    });
+  }
 
-stopRecording() {
+  stopRecording() {
     this.camera.stopRecording();
-}
+  }
 
   render() {
     const { recording, processing } = this.state;
@@ -79,31 +77,31 @@ stopRecording() {
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
           flashMode={RNCamera.Constants.FlashMode.on}
-          permissionDialogTitle={"Permission to use camera"}
+          permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={
-            "We need your permission to use your camera phone"
+            'We need your permission to use your camera phone'
           }
         />
         <View
-          style={{ flex: 0, flexDirection: "row", justifyContent: "center" }}
+          style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}
         >
           {button}
         </View>
       </View>
-      )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start"
+    justifyContent: 'flex-start'
   },
   preview: {
     height: 200,
     width: 200,
     borderRadius: 20
   }
-})
+});
 
-export default QuestionVideo
+export default QuestionVideo;

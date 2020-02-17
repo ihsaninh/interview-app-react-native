@@ -3,7 +3,7 @@ import * as types from '../types';
 const initialState = {
   data: [],
   error: null,
-  isLoading: false,
+  isLoading: false
 };
 
 export default function answer(state = initialState, action) {
@@ -11,19 +11,19 @@ export default function answer(state = initialState, action) {
     case types.ANSWER:
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
       };
     case types.ANSWER_FULFILLED:
       return {
         ...state,
         isLoading: false,
-        data: action.payload.data,
+        data: action.payload.data
       };
     case types.ANSWER_REJECTED:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.message,
+        error: action.payload.message
       };
 
     default:

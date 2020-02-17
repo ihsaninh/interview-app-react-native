@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Text,
   View,
@@ -7,16 +7,16 @@ import {
   ScrollView,
   StyleSheet,
   ActivityIndicator
-} from "react-native";
-import { Button } from "react-native-elements";
-import { connect } from "react-redux";
-import CountDown from "react-native-countdown-component";
-import QuestionText from "./QuestionText";
-import QuestionVideo from "./QuestionVideo";
-import MultipleChoice from "./MultipleChoice";
-import MultipleSelect from "./MultipleSelect";
-import * as actionAnswer from "../../redux/actions/answer";
-import * as actionQuestions from "../../redux/actions/questions";
+} from 'react-native';
+import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
+import CountDown from 'react-native-countdown-component';
+import QuestionText from './QuestionText';
+import QuestionVideo from './QuestionVideo';
+import MultipleChoice from './MultipleChoice';
+import MultipleSelect from './MultipleSelect';
+import * as actionAnswer from '../../redux/actions/answer';
+import * as actionQuestions from '../../redux/actions/questions';
 
 class Interview extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Interview extends Component {
       answer: null,
       attachment: null,
       userId: null,
-      number: 1,
+      number: 1
     };
   }
 
@@ -43,18 +43,18 @@ class Interview extends Component {
     await this.setState({
       number: this.state.number + 1,
       answer: null,
-      attachment: null,
+      attachment: null
     });
     if (this.state.number <= this.props.questions.data.question_count) {
       this.props.getQuestions(this.state.number);
     } else {
       Alert.alert(
-        "Congratulations",
-        "Terima kasih sudah menjawab semua pertanyaan interview online kami, silahkan tunggu bulan depan untuk pengumuman hasilnya",
+        'Congratulations',
+        'Terima kasih sudah menjawab semua pertanyaan interview online kami, silahkan tunggu bulan depan untuk pengumuman hasilnya',
         [
           {
-            text: "OK",
-            onPress: () => this.props.navigation.navigate("Initial")
+            text: 'OK',
+            onPress: () => this.props.navigation.navigate('Initial')
           }
         ],
         { cancelable: false }
@@ -63,7 +63,7 @@ class Interview extends Component {
   };
 
   changeState = (state, value) => {
-    if (state === "answer") {
+    if (state === 'answer') {
       this.setState({
         answer: value
       });
@@ -80,8 +80,8 @@ class Interview extends Component {
     if (question === undefined) {
       return (
         <View style={styles.containerTransparent}>
-            <ActivityIndicator size={"large"} />
-            <Text style={styles.note}>loading</Text>
+          <ActivityIndicator size={'large'} />
+          <Text style={styles.note}>loading</Text>
         </View>
       );
     } else {
@@ -96,42 +96,42 @@ class Interview extends Component {
           <View style={styles.bottomHeader}>
             <View style={{ marginHorizontal: 10 }}>
               <Text style={styles.textQuestionBottom}>
-                Question {question.number} of{" "}
+                Question {question.number} of{' '}
                 {this.props.questions.data.question_count}
               </Text>
               <CountDown
                 until={question.timer * 60}
                 size={15}
                 style={{
-                  alignSelf: "flex-end",
-                  alignItems: "flex-end",
+                  alignSelf: 'flex-end',
+                  alignItems: 'flex-end',
                   marginTop: -28
                 }}
                 onFinish={this.nextQuestion}
-                digitStyle={{ backgroundColor: "#FFF" }}
-                digitTxtStyle={{ color: "#6a69e2" }}
+                digitStyle={{ backgroundColor: '#FFF' }}
+                digitTxtStyle={{ color: '#6a69e2' }}
                 timeLabels={{ m: null, s: null }}
-                timeToShow={["M", "S"]}
+                timeToShow={['M', 'S']}
               />
             </View>
           </View>
           <ScrollView>
             <View style={styles.questionPlace}>
               <View style={styles.questionDistance}>
-                {question.type === "text" ? (
+                {question.type === 'text' ? (
                   <QuestionText
                     number={question.number}
                     desc={question.description}
                     changeState={this.changeState}
                   />
-                ) : question.type === "multiple choice" ? (
+                ) : question.type === 'multiple choice' ? (
                   <MultipleChoice
                     options={question.options}
                     number={question.number}
                     desc={question.description}
                     changeState={this.changeState}
                   />
-                ) : question.type === "multiple select" ? (
+                ) : question.type === 'multiple select' ? (
                   <MultipleSelect
                     options={question.options}
                     number={question.number}
@@ -151,8 +151,8 @@ class Interview extends Component {
                   title={
                     this.state.number ==
                     this.props.questions.data.question_count
-                      ? "Selesai Tes"
-                      : "Pertanyaan Selanjutnya"
+                      ? 'Selesai Tes'
+                      : 'Pertanyaan Selanjutnya'
                   }
                   onPress={this.nextQuestion}
                 />
@@ -168,21 +168,21 @@ class Interview extends Component {
 const styles = StyleSheet.create({
   header: {
     height: 60,
-    backgroundColor: "#6a69e2"
+    backgroundColor: '#6a69e2'
   },
   bottomHeader: {
     height: 50,
-    backgroundColor: "rgba(0,0,0,0.5)"
+    backgroundColor: 'rgba(0,0,0,0.5)'
   },
   textQuestionBottom: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
     paddingTop: 13
   },
   textQuestion: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 20,
-    fontWeight: "500",
+    fontWeight: '500',
     paddingTop: 20
   },
   questionPlace: {
@@ -195,32 +195,32 @@ const styles = StyleSheet.create({
   btnStyle: {
     margin: 30,
     marginTop: 50,
-    backgroundColor: "#fff",
-    borderColor: "#6a69e2",
+    backgroundColor: '#fff',
+    borderColor: '#6a69e2',
     borderWidth: 1,
     borderRadius: 50
   },
   btnTitleStyle: {
-    color: "#6a69e2",
-    fontWeight: "500",
+    color: '#6a69e2',
+    fontWeight: '500',
     fontSize: 16
   },
   containerTransparent: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'rgba(255,255,255,0.4)',
-      position : 'absolute',
-      top : 0,
-      left : 0,
-      bottom : 0,
-      right : 0,
-    },
-    note: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
-    },
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.4)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
+  note: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5
+  }
 });
 
 const mapStateToProps = state => {
