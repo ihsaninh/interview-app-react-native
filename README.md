@@ -7,7 +7,7 @@
 - [Requirements](#requirements)
 - [How to Run](#howtorun)
 - [Testing Application](#testingapplication)
-- [Screenshoots](#screenshoot)
+- [Screenshots](#screenshoot)
 - [Contributors](#contributors)
 
 ## Introduction
@@ -17,7 +17,7 @@ Interview Online App is an application that is used to interview prospective emp
 ## Features
 * User can register to start interview
 * User get the procedure for working on the questions given.
-* User can get multiple type of question, including text, multiple choice, multiple select,and video
+* User can get multiple type of question, including text, multiple choice, multiple select, and video
 
 ## Requirements
 * [`npm`](https://www.npmjs.com/get-npm)
@@ -33,7 +33,7 @@ Interview Online App is an application that is used to interview prospective emp
    ```
    $ git clone https://github.com/ihsaninh/Interview-App-React-Native.git
    ```
-2. Install all depedencies on the package.json
+2. Install all dependencies on the package.json
    ```
    $ cd Interview-App-React-Native
    $ npm install
